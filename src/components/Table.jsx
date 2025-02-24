@@ -38,9 +38,9 @@ const CustomersTable = ({
  
 
   return (
-    <div class=" bg-white  w-auto relative h-full ">
-      <div class="w-full relative h-full overflow-auto scrollbar-hide">
-        <table class="lg:divide-gray-200 lg:divide-y w-full   h-full relative">
+    <div class="    w-full  h-full ">
+      <div class=" w-[350px] sm:w-[650px] md:w-[800px] lg:w-full overflow-x-auto h-full ">
+        <table class="lg:divide-gray-200 w-full table lg:divide-y h-full ">
           <thead class="table-header-group border-t-[1px] border-brandBorder sticky top-0 bg-whiteColor z-10 w-full">
             <tr>
               {filteredTableHeading.map((el, i) => (
@@ -83,8 +83,8 @@ const CustomersTable = ({
                       : "border-y-[1px] border-brandBorder pb-2.5"
                   }`}
                 >
-                  <td class="px-4 py-3 text-[14px]  text-gray-900 align-top lg:align-middle whitespace-nowrap">
-                    <div class="flex items-center h-[40px] relative gap-3 max-w-[300px]">
+                  <td class="px-4 py-3 text-[14px]  text-gray-900 align-top lg:align-middle ">
+                    <div class="flex items-center h-[40px] relative gap-3 ">
                        <input type="checkbox" />
                     </div>
                     
@@ -112,7 +112,7 @@ const CustomersTable = ({
                     )
                   )}
 
-                  <td class=" px-4 py-5 table-cell whitespace-nowrap">
+                  <td class=" px-4 py-5 table-cell ">
                   <details className="dropdown">
                     <summary className="btn m-1 border-none shadow-none !bg-transparent"> <FaEllipsisVertical /></summary>
                     <ul className="menu dropdown-content text-[14px] bg-base-100 rounded-box z-[1] w-fit p-2 shadow">

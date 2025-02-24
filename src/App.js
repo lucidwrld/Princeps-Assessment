@@ -64,7 +64,7 @@ const [selectedDate, setSelectedDate] = useState(null);
    
   return (
      <AppLayout setSearchText={setSearchText} searchText={searchText}>
-      <div className='bg-transparent flex flex-col gap-7 p-5 lg:p-10 w-auto h-full'>
+      <div className='bg-transparent flex flex-col gap-7 p-5 lg:p-10 w-full h-full'>
           <div className='w-full h-fit flex flex-col lg:flex-row gap-5 lg:gap-0 justify-between lg:items-center'>
             <div className='w-fit h-fit flex flex-col'>
               <h2 className='text-[20px] text-brandColor font-semibold'>
@@ -83,7 +83,7 @@ const [selectedDate, setSelectedDate] = useState(null);
                     <input onChange={(e) => {setSearchText(e.target.value)}} value={searchText} className="border-none outline-none w-full h-full bg-transparent placeholder:text-brandPlaceholder text-black text-[13px] font-normal" placeholder="Search customer details" />
                      
                 </div>
-                <div className='w-full lg:w-fit flex gap-3 h-fit'>
+                <div className='w-full lg:w-fit flex flex-wrap gap-3 h-fit'>
                      <CustomButton text={"Filter"} selectedDate={selectedDate} setSelectedDate={setSelectedDate} selectedStatus={selectedStatus} setSelectedStatus={setSelectedStatus} setShowFilter={setShowFilter}  selectedColumns={() => {}} setSelectedColumns={() => {}} showFilter={showFilter} onFunc={() => {}} image={filterIcon} />
                      <CustomButton text={"Edit Columns"}   selectedDate={() => {}} setSelectedDate={() => {}} selectedStatus={() => {}} setSelectedStatus={() => {}} selectedColumns={selectedColumns} setSelectedColumns={setSelectedColumns} setShowFilter={setShowFilter} dataColumns={dataColumns} showFilter={showFilter} onFunc={() => {}} image={editIcon} />
                      <CustomButton text={"Export.csv"} setShowFilter={setShowFilter} showFilter={showFilter}  selectedDate={() => {}} setSelectedDate={() => {}} selectedStatus={() => {}} setSelectedStatus={() => {}} selectedColumns={() => {}} setSelectedColumns={() => {}}  onFunc={() => {ExportToCSV(data?.data?.data, "Customers Data")}} image={exportIcon} backgroundColor={"bg-brandColor4"}/>
@@ -98,6 +98,7 @@ const [selectedDate, setSelectedDate] = useState(null);
               </div>
             </div>}
             <CustomersTable selectedColumns={selectedColumns} refetch={refetch} data={data?.data?.data} />
+            
             <div className='w-full h-fit  grid gap-5 lg:gap-0 lg:grid-cols-5'>
               <div className='col-span-1 text-[14px] font-normal text-brandColor5 flex items-center'>
                 Showing <FaAngleLeft color='#44444B' size={15} /> <input value={pageCount} onChange={(e) => {setPageCount(e.target.value)}} className='outline-none flex items-center justify-center  !w-[20px] !h-fit border-[1px] px-1 border-brandBorder text-brandColor5 bg-transparent' />  <FaAngleRight color='#44444B' size={15} /> rows

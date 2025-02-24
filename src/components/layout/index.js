@@ -15,7 +15,7 @@ export default function AppLayout({children, setSearchText,searchText}){
             {showSide && <div className="lg:hidden h-full w-full bg-black/25 absolute z-50 flex">
                 <Sidebar toggleSideBar={toggleSideBar} />
             </div>}
-            <div className="w-auto h-full lg:col-span-5 flex flex-col">
+            <div className="w-full h-full lg:col-span-5 flex flex-col">
                 <Navbar toggleSideBar={toggleSideBar} setSearchText={setSearchText} searchText={searchText} />
                 {children}    
             </div>
