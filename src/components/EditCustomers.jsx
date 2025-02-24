@@ -9,6 +9,7 @@ import isValidUrl from "../utils/UrlChecker";
 import { PatchCustomerManager } from "../controllers/patchCustomerController";
 import useGetCustomerByIdManager from "../controllers/getCustomerByIdController";
 import moment from "moment/moment";
+import isValidEmail from "../utils/EmailValidator";
 
 export default function EditCustomers({id, refetch}){
     const [errors, setErrors] = useState({});
@@ -179,7 +180,11 @@ export default function EditCustomers({id, refetch}){
                   case "email":
                       if (!value) {
                           newErrors.email = "Email is required";
-                      } else {
+                      }
+                       else if (value && !isValidEmail(value)){
+                                          newErrors.email = "Email is not valid";
+                        }
+                       else {
                           delete newErrors.email;
                       }
                   break;
@@ -301,6 +306,9 @@ export default function EditCustomers({id, refetch}){
               if (!customerDetails.email) {
               newErrors.email = "Email is required";
               }
+              if (customerDetails.email && !isValidEmail(customerDetails.email)) {
+                          newErrors.email = "Email is not valid";
+                          }
               if (!customerDetails.id_card) {
               newErrors.id_card = "Id Card is required";
               }

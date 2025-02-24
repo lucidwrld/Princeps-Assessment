@@ -5,6 +5,7 @@ import { editWhiteIcon } from "../assets";
 import { toast } from "react-toastify";
 import { CreateCustomerManager } from "../controllers/createCustomerController";
 import isValidUrl from "../utils/UrlChecker";
+import isValidEmail from "../utils/EmailValidator";
 
 export default function CreateCustomers({refetch}){
     const [errors, setErrors] = useState({});
@@ -148,7 +149,11 @@ export default function CreateCustomers({refetch}){
             case "email":
                 if (!value) {
                     newErrors.email = "Email is required";
-                } else {
+                } 
+                else if (value && !isValidEmail(value)){
+                    newErrors.email = "Email is not valid";
+                }
+                else {
                     delete newErrors.email;
                 }
             break;
@@ -270,6 +275,10 @@ export default function CreateCustomers({refetch}){
         if (!customerDetails.email) {
         newErrors.email = "Email is required";
         }
+        if (customerDetails.email && !isValidEmail(customerDetails.email)) {
+            newErrors.email = "Email is not valid";
+            }
+        
         if (!customerDetails.id_card) {
         newErrors.id_card = "Id Card is required";
         }
